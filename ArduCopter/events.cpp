@@ -59,11 +59,9 @@ void Copter::failsafe_radio_on_event()
             break;
 
         case LAND:
-            // continue to land if battery failsafe is also active otherwise fall through to default handling
-            if (g.failsafe_battery_enabled == FS_BATT_LAND && failsafe.battery) {
-                break;
-            }
-            // no break
+            // ALWAYS continue to land
+            break;
+			
         default:
             // used for AltHold, Guided, Loiter, RTL, Circle, Drift, Sport, Flip, Autotune, PosHold
             // if landed disarm
